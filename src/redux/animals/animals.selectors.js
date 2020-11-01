@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const selectInjuredAnimals = state => state.injuredAnimals;
+const selectInjuredAnimals = state => state.animals;
 
 export const selectAllInjuredAnimals = createSelector(
     [selectInjuredAnimals], 

@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     animals: [
         {
+            id: 1,
             family: 'feline',
             specie: 'lion',
             name: 'Patrice',
@@ -10,6 +11,7 @@ const INITIAL_STATE = {
             medical_status: 'broken knee'
         },
         {
+            id: 2,
             family: 'feline',
             specie: 'lion',
             name: 'Selina',
@@ -19,6 +21,7 @@ const INITIAL_STATE = {
             medical_status: 'teeth injured'
         },
         {
+            id: 3,
             family: 'Giraffidae',
             specie: 'giraffe',
             name: 'Ted',
@@ -28,6 +31,7 @@ const INITIAL_STATE = {
             medical_status: 'medium cut in neck'
         },
         {
+            id: 4,
             family: 'Ursidae',
             specie: 'bear',
             name: 'ursa',
@@ -37,6 +41,7 @@ const INITIAL_STATE = {
             medical_status: 'unstable digestion'
         },
         {
+            id: 5,
             family: 'Ursidae',
             specie: 'bear',
             name: 'matilde',
@@ -46,6 +51,7 @@ const INITIAL_STATE = {
             medical_status: 'back surgery'
         },
         {
+            id: 6,
             family: 'feline',
             specie: 'siberian tiger',
             name: 'leonidas',
