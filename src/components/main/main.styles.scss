@@ -1,0 +1,39 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .search-container {
+        display: flex; 
+        flex-direction: column;       
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 2rem 0;
+        width: 33rem;
+
+        h1 {            
+            letter-spacing: 0.3rem;
+            text-align: center;
+            font-size: 2rem;  
+            margin-bottom: 1rem;          
+        }
+    }
+
+    .animal-container {        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 40rem) {
+    .search-container {        
+        flex-direction: row !important;
+
+        h1 {
+            margin-bottom: 0 !important;
+        }
+    }
+}

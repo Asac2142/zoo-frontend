@@ -1,11 +1,50 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { selectAllInjuredAnimals, selectSearchField } from '../../redux/animals/animals.selectors';
+import { searchAnimal } from '../../redux/animals/animals.actions';
+import Animals from '../animals/animals.component';
 
 import './main.styles.scss';
 
-const Main = () => {
+const Main = ({animals, filterAnimals, searchField}) => {  
+    const result = getFilteredAnimals(animals, searchField);
+
     return (
-        <div>MAIN</div>
+        <div className='main-container'>            
+            <div className='search-container'>
+                <h1>Search</h1>
+                <div>
+                    <input onChange={(event) => filterAnimals(event.target.value)}/>
+                </div>
+            </div>
+            <div className='animal-container'>                    
+            {                                                
+                result.map(({id, ...animals}) => {
+                    return (
+                        <Animals key={id}  {...animals}/>
+                    )
+                })
+            }
+            </div>
+        </div>
     );
 };
 
-export default Main;
+const getFilteredAnimals = (animals, searchedAnimal) => {
+    return animals.filter((animal) => animal.name.toLowerCase().includes(searchedAnimal.toLowerCase()));    
+};
+
+const mapStateToProps = createStructuredSelector({
+    animals: selectAllInjuredAnimals,
+    searchField: selectSearchField
+});
+
+const mapDispatchToProps = (dispatch) => {
+    return {        
+        filterAnimals: (name) => dispatch(searchAnimal(name))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
