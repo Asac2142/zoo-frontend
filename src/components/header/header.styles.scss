@@ -1,13 +1,29 @@
-.header {
+.header-main {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
     text-decoration: none;
     align-items: center;
     background: chocolate;
     font-weight: bold;
+    width: 100%;    
+
+    .hamburguer-btn {
+        background: url('../../assets/hamburguer.svg');
+        background-position: center;
+        background-size: cover;
+        height: 2rem;
+        width: 2rem;        
+        margin-right: 1.5rem;
+
+        &:hover,
+        &:active {
+            cursor: pointer;            
+        }
+    }
 
     .logo-container {  
-        margin-left: 1.5rem;      
+        margin-left: 1.5rem;             
         padding: 0.5rem;
 
         .logo {
@@ -24,16 +40,17 @@
         }
     }
 
-    .nav-container {
-        margin-right: 1.5rem;        
+    .nav-container {        
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;        
 
         .option {
             letter-spacing: 0.1rem;
             font-size: 1.2rem;
-            margin: 0 1rem;
+            margin: 1rem 1.5rem;
             padding: 0.3rem 1rem;
             text-decoration: none;
             color: #fff;
@@ -46,7 +63,49 @@
                 transition: 0.2s ease-in-out;
             }
         }
+
+        .main {
+            background: #634d34;
+            color: #fff;
+            border-radius: 0.3rem;
+
+            &:hover,
+            &:active {
+                animation: jump 0.2s ease-in-out forwards;
+                background: #fff;
+                color: #634d34;
+                border-radius: 0.3rem;
+            }
+        }
     }
+}
+
+@media (min-width: 47rem) {
+    .header-main {
+        flex-direction: row !important;
+
+        .hamburguer-btn {
+            display: none;
+        }
+
+        .logo-container {
+            margin-bottom: 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: row !important;
+            justify-content: space-between;
+            align-items: center;
+            width: auto;
+            margin-right: 1.5rem;
+
+            .option {
+                margin: 0 1rem;
+            }
+        }
+    }
+
 }
 
 @keyframes rotate {
@@ -56,5 +115,23 @@
 
     to {
         transform: rotate(0deg);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.3rem);
+    }
+
+    75% {
+        transform: translateY(-0.3rem);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

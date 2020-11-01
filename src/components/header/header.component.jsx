@@ -5,13 +5,15 @@ import './header.styles.scss';
 
 const Header = () => {
     return (
-        <div className='header'>
+        <div className='header-main'>
             <Link className='logo-container' to='/'>
                 <div className='logo'></div>
             </Link>
+            <div className='hamburguer-btn'/>
             <div className='nav-container'> 
-                <Link className='option' to='/'>Injured</Link>
-                <Link className='option' to='/safe'>Safe</Link>
+                <Link className='option main' to='/report'>Report new animal</Link>
+                <Link className='option' to='/'>Medical attention</Link>
+                <Link className='option' to='/safe'>Recovered</Link>
             </div>
         </div>
     )
