@@ -4,6 +4,7 @@ import Main from './components/main/main.component';
 
 import './App.css';
 import Header from './components/header/header.component';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -14,7 +15,7 @@ class App extends React.Component {
           <Header />
         </header>
         <section>
-          <Main />
+          <Route exact path='/' component={ Main }/>
         </section>
       </div>
     );

@@ -1,0 +1,59 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    align-items: center;
+    background: chocolate;
+
+    .logo-container {  
+        margin-left: 1.5rem;      
+        padding: 0.5rem;
+
+        .logo {
+            background: url('https://image.flaticon.com/icons/png/512/427/427401.png');
+            background-position: center;
+            background-size: cover;
+            height: 3rem;
+            width: 3rem;
+
+            &:hover,
+            &:active {
+                animation: rotate 1s infinite;
+            }
+        }
+    }
+
+    .nav-container {
+        margin-right: 1.5rem;        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .option {
+            letter-spacing: 0.1rem;
+            font-size: 1.2rem;
+            margin: 0 1rem;
+            padding: 0.3rem 1rem;
+            text-decoration: none;
+            color: #fff;
+
+            &:hover,
+            &:active {
+                background: #634d34;
+                padding: 0.3rem 1rem;
+                border-radius: 0.3rem;
+                transition: 0.2s ease-in-out;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
