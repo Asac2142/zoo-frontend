@@ -1,0 +1,128 @@
+.animal-card {
+    position: relative;
+    background: cornflowerblue;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;    
+    height: 20rem;
+    padding: 2.5rem;
+    border: 2px solid #000;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 1px 1px 2px #ccc;
+
+    &:hover,
+    &:active {
+        outline: none;
+        cursor: pointer;
+        animation: jump 0.3s ease-in-out forwards;
+    }
+
+    .thumbnail {
+        height: 9rem;
+        width: 9rem;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8rem;
+        border: 2px solid goldenrod;
+        margin-bottom: 1rem;
+    }
+
+    .animal-info {        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .name {
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .specie {
+            background: goldenrod;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            border: 1px solid goldenrod;
+        }
+    }
+
+    .badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #fff;
+        color: red;
+        transform: rotate(43deg) translateY(-1.9rem) translateX(2.5rem);
+        width: 10rem;
+        border: 2px solid red;
+    }
+}
+
+@media (min-width: 40rem) {
+    .animal-card {
+        flex-direction: row;
+        justify-content: space-between;        
+        width: 35rem;
+        height: 12rem;
+
+        .animal-info {
+            margin: 0 1rem;
+        }
+
+        .badge {
+            position: relative;
+            transform: rotate(0);
+            width: auto;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;   
+            padding: 0.3rem;
+            
+            p {
+                margin: 0 0.5rem;
+            }
+
+            .cross {
+                background: url('../../assets/cross.png');
+                background-position: center;
+                background-size: cover;
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+}
+
+    
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.3rem);
+    }
+
+    75% {
+        transform: translateY(-0.3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
