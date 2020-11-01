@@ -1,3 +1,5 @@
+import { animalsActionTypes } from './animals.types';
+
 const INITIAL_STATE = {
     animals: [
         {
@@ -60,11 +62,17 @@ const INITIAL_STATE = {
             active: false,
             medical_status: 'cut in tail'
         }
-    ]
+    ],
+    searchField: ''
 };
 
 const animalsReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
+        case animalsActionTypes.SEARCH_ANIMAL:
+            return {
+                ...state,
+                searchField: action.payload
+            }            
         default: 
             return state;
     }
