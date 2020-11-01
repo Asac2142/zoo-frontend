@@ -16,7 +16,7 @@ const Main = ({animals, filterAnimals, searchField}) => {
             <div className='search-container'>
                 <h1>Search</h1>
                 <div>
-                    <input onChange={(event) => filterAnimals(event.target.value)}/>
+                    <input className='searchField' onChange={(event) => filterAnimals(event.target.value)}/>
                 </div>
             </div>
             <div className='animal-container'>                    
