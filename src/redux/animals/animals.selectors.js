@@ -15,5 +15,10 @@ export const selectSearchField = createSelector(
 
 export const selectAllHealthyAnimals = createSelector(
     [selectAllAnimals],
-    (iAnimals) => iAnimals.animals.filter(animal => animal.active)
+    (hAnimals) => hAnimals.animals.filter(animal => animal.active)
+);
+
+export const selectAll = createSelector(
+    [selectAllAnimals],
+    (animals) => animals.animals
 );

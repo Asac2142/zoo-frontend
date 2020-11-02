@@ -1,5 +1,5 @@
 import { animalsActionTypes } from './animals.types';
-import { setHealthyAnimal } from './animals.utils';
+import { setHealthyAnimal, updateAnimal, deleteAnimal } from './animals.utils';
 
 const INITIAL_STATE = {
     animals: [
@@ -83,6 +83,16 @@ const animalsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 animals: [...state.animals, {...action.payload}]
+            }
+        case animalsActionTypes.UPDATE_ANIMAL:
+            return {
+                ...state,
+                animals: updateAnimal(state.animals, action.payload)
+            }
+        case animalsActionTypes.DELETE_ANIMAL:
+            return {
+                ...state,
+                animals: deleteAnimal(state.animals, action.payload)
             }
         default: 
             return state;

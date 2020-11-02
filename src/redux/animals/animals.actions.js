@@ -20,3 +20,17 @@ export const setHealthyAnimal = (id) => {
         payload: id
     }
 };
+
+export const updateAnimal = (animal) => {
+    return {
+        type: animalsActionTypes.UPDATE_ANIMAL,
+        payload: animal
+    }
+};
+
+export const deleteAnimal = (animal) => {
+    return {
+        type: animalsActionTypes.DELETE_ANIMAL,
+        payload: animal
+    }
+};
