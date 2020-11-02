@@ -9,7 +9,7 @@ import './report-new-animal.styles.scss';
 
 class ReportNewAnimal extends React.Component {
     constructor() {
-        super();        
+        super();
         this.state = {            
             id: 0,            
             imageUrl: [],
@@ -21,28 +21,29 @@ class ReportNewAnimal extends React.Component {
             active: false                        
         };
         this.onDrop = this.onDrop.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({ id: this.props.id.length + 1 });
-    }
+    };
 
     onDrop(pictureFiles, pictureDataURLs) {        
         this.setState({            
             imageUrl: this.state.imageUrl.concat(pictureFiles)
         });
-    }
+    };
 
     handleChange =  (event) => {
         const {name, value} = event.target;
         this.setState({ [name]: value });
-    }
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.addNewAnimal(this.state);
-        this.clearState();
-    }
+        this.setState(
+            { id: this.props.id.length + 1 },
+            () => {
+                this.props.addNewAnimal(this.state);
+                this.clearState();
+            }
+        );        
+    };
 
     clearState = () => {
         this.setState({
@@ -55,7 +56,7 @@ class ReportNewAnimal extends React.Component {
             medical_status: '',
             active: false    
         });
-    }
+    };
 
     render() {  
         const {name, family, specie, age, medical_status} = this.state;
