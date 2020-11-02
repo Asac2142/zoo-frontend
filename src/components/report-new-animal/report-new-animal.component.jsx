@@ -27,16 +27,34 @@ class ReportNewAnimal extends React.Component {
         this.setState({ id: this.props.id.length + 1 });
     }
 
-    onDrop(pictureFiles, pictureDataURLs) {
-        console.log('URL', pictureDataURLs.toString())
+    onDrop(pictureFiles, pictureDataURLs) {        
         this.setState({            
             imageUrl: this.state.imageUrl.concat(pictureFiles)
         });
     }
 
-    handleChange = (event) => {
+    handleChange =  (event) => {
         const {name, value} = event.target;
         this.setState({ [name]: value });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.addNewAnimal(this.state);
+        this.clearState();
+    }
+
+    clearState = () => {
+        this.setState({
+            id: 0,            
+            imageUrl: [],
+            name: '',
+            family: '',
+            specie: '',
+            age: 0,
+            medical_status: '',
+            active: false    
+        });
     }
 
     render() {  
@@ -45,14 +63,15 @@ class ReportNewAnimal extends React.Component {
         return (
             <div>
                 <h1 className='report-title'>Who needs medical attention?</h1>
-                <div className='form'>
+                <form className='form' onSubmit={this.handleSubmit}>
                     <label>Family</label>
                     <div>
                         <input 
                             name='family' 
                             value={family} 
                             type='text' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange} 
+                            required/>
                     </div>
     
                     <label>Specie</label>
@@ -61,7 +80,8 @@ class ReportNewAnimal extends React.Component {
                             name='specie' 
                             value={specie} 
                             type='text' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange}
+                            required/>
                     </div>
     
                     <label>Name</label>
@@ -70,7 +90,8 @@ class ReportNewAnimal extends React.Component {
                             name='name' 
                             value={name} 
                             type='text' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange}
+                            required/>
                     </div>
     
                     <label>Photo</label>
@@ -89,7 +110,8 @@ class ReportNewAnimal extends React.Component {
                             name='age' 
                             value={age} 
                             type='number' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange}
+                            required />
                     </div>
     
                     <label>Medical status</label>
@@ -98,31 +120,27 @@ class ReportNewAnimal extends React.Component {
                             name='medical_status' 
                             value={medical_status} 
                             type='text' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange}
+                            required />
                     </div>
     
-                    <button className='btnSave' onClick={() => {
-                        console.log('state:', this.state);
-                        console.log('thisProps:', this.props)
-                        this.props.addNewAnimal(this.state)                        
-                        }}>Report</button>
-                </div>
+                    <button type='submit' className='btnSave'>Report</button>
+                </form>
             </div>        
         )
-    }
-    
+    }    
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addNewAnimal: (animal) => dispatch(addAnimal(animal))
     }
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         id: selectAllInjuredAnimals(state)
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReportNewAnimal);

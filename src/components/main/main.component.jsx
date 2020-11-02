@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import Animals from '../animals/animals.component';
 import { selectAllInjuredAnimals, selectSearchField } from '../../redux/animals/animals.selectors';
 import { searchAnimal } from '../../redux/animals/animals.actions';
-import Animals from '../animals/animals.component';
 
 import './main.styles.scss';
 
@@ -23,7 +23,7 @@ const Main = ({animals, filterAnimals, searchField}) => {
             {                                                
                 result.map(({id, ...animals}) => {
                     return (
-                        <Animals key={id}  {...animals}/>
+                        <Animals key={id} {...animals} />
                     )
                 })
             }
