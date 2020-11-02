@@ -3,7 +3,7 @@ import ImageUploader from 'react-images-upload';
 import { connect } from 'react-redux';
 
 import { addAnimal } from '../../redux/animals/animals.actions';
-import { selectAllInjuredAnimals } from '../../redux/animals/animals.selectors';
+import { selectAll } from '../../redux/animals/animals.selectors';
 
 import './report-new-animal.styles.scss';
 
@@ -35,12 +35,13 @@ class ReportNewAnimal extends React.Component {
     };
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault();        
         this.setState(
             { id: this.props.id.length + 1 },
             () => {
                 this.props.addNewAnimal(this.state);
                 this.clearState();
+                this.props.history.push('/');
             }
         );        
     };
@@ -140,7 +141,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        id: selectAllInjuredAnimals(state)
+        id: selectAll(state)
     }
 };
 
