@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { setHealthyAnimal } from '../../redux/animals/animals.actions';
 
 import './modal-animal.styles.scss';
 
@@ -7,8 +10,9 @@ class AnimalModal extends React.Component {
         super(props);
         this.state = {
             animal: this.props.animal,
-            show: false
-        }
+            show: false,
+            id: this.props.id
+        }        
     }
 
     handleChange = (event) => {
@@ -18,6 +22,7 @@ class AnimalModal extends React.Component {
 
     render() {
         const { family, specie, name, age, medical_status } = this.state.animal;
+        
         return (
             !this.state.show ? 
             <div className='modal-container'>
@@ -57,7 +62,14 @@ class AnimalModal extends React.Component {
                     <div className='modal-footer'>
                         <button className='btn-delete'>Delete</button>
                         <button className='btn-update'>Update</button>
-                        <button className='btn-safe'>Report healthy</button>                
+                        <button 
+                            className='btn-safe' 
+                            onClick={() => {
+                                    this.props.setHealthy(this.state.id)
+                                    this.setState({ show: !this.state.show })
+                                }}>
+                                Report healthy
+                        </button>
                     </div>
                 </div>
             </div> :
@@ -66,4 +78,10 @@ class AnimalModal extends React.Component {
     }
 };
 
-export default AnimalModal;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setHealthy: (id) => dispatch(setHealthyAnimal(id))
+    }
+};
+
+export default connect(null, mapDispatchToProps)(AnimalModal);

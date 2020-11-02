@@ -5,17 +5,17 @@ import AnimalModal from '../modal-animal/modal-animal.component';
 import './animals.styles.scss';
 
 class Animals extends React.Component {
-    constructor(props) {
+    constructor(props) {        
         super(props);
         this.state = {
             show: false,
-            animal: this.props
+            animal: this.props,
+            id: this.props.id
         }
     }
 
     render() {
-        const { name, imageUrl, specie } = this.state.animal;
-
+        const { name, imageUrl, specie } = this.state.animal;        
         return ( 
             <div>
                 <div className='animal-card' onClick={() => this.setState({ show: !this.state.show }) }>
@@ -30,7 +30,7 @@ class Animals extends React.Component {
                     </div>
                 </div>
                 {
-                    this.state.show ? <AnimalModal animal={this.state.animal}/> : null
+                    this.state.show ? <AnimalModal animal={this.state.animal} id={this.state.id}/> : null
                 }
             </div>
         );

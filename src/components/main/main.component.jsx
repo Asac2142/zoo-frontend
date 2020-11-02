@@ -23,7 +23,7 @@ const Main = ({animals, filterAnimals, searchField}) => {
             {                                                
                 result.map(({id, ...animals}) => {
                     return (
-                        <Animals key={id} {...animals} />
+                        <Animals key={id} {...animals} id={id} />
                     )
                 })
             }
