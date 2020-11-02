@@ -6,7 +6,7 @@ import './animals.styles.scss';
 
 class Animals extends React.Component {
     constructor(props) {        
-        super(props);
+        super(props);        
         this.state = {
             show: false,
             animal: this.props,
@@ -21,7 +21,7 @@ class Animals extends React.Component {
     }
 
     render() {
-        const { name, imageUrl, specie } = this.state.animal;        
+        const { name, imageUrl, specie } = this.props; //this.state.animal; 
         return ( 
             <div>
                 <div 
