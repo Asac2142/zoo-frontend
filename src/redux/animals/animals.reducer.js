@@ -72,7 +72,12 @@ const animalsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 searchField: action.payload
-            }            
+            }
+        case animalsActionTypes.ADD_ANIMAL:
+            return {
+                ...state,
+                animals: [...state.animals, {...action.payload}]
+            }
         default: 
             return state;
     }

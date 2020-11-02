@@ -6,3 +6,10 @@ export const searchAnimal = (name) => {
         payload: name
     }
 };
+
+export const addAnimal = (animal) => {
+    return {
+        type: animalsActionTypes.ADD_ANIMAL,
+        payload: animal
+    }
+};
