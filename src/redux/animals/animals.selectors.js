@@ -5,7 +5,7 @@ const selectSF = (state) => state.animals;
 
 export const selectAllInjuredAnimals = createSelector(
     [selectInjuredAnimals], 
-    (iAnimals) => iAnimals.animals
+    (iAnimals) => iAnimals.animals.filter(animal => !animal.active)
 );
 
 export const selectSearchField = createSelector(

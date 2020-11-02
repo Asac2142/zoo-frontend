@@ -13,3 +13,10 @@ export const addAnimal = (animal) => {
         payload: animal
     }
 };
+
+export const setHealthyAnimal = (id) => {
+    return {
+        type: animalsActionTypes.SET_HEALTHY,
+        payload: id
+    }
+};
