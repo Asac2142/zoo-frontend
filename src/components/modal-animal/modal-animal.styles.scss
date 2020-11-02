@@ -1,0 +1,162 @@
+.modal-container { 
+    height: 100vh;
+
+    .backdrop {
+        position: fixed;
+        background: #000;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal {                
+        padding: 1.3rem;
+        color: #000;
+        position: fixed;
+        border-radius: 0.3rem;
+        width: 75%;        
+        top: 50%;
+        left: 50%;
+        z-index: 20;
+        transform: translate(-50%, -50%);         
+        max-width: 50rem;
+        background: #d6d0d0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+        
+        .profile-photo {
+            background-position: center;
+            background-size: cover;
+            height: 5.5rem;
+            width: 5.5rem;
+            border-radius: 10rem;
+            border: 2px solid goldenrod;
+            margin-bottom: 0.3rem;
+        }
+
+        h3 {
+            letter-spacing: 0.1rem;
+            font-weight: bold;
+        }
+
+        .close-icon {
+            position: absolute;            
+            top: 0;
+            right: 0;
+            height: 1.5rem;
+            width: 1.5rem;            
+            background: url('../../assets/close.png');           
+            background-position: center;
+            background-size: cover;
+            margin-right: 0.3rem;
+            margin-top: 0.3rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .modal-header {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem; 
+            align-items: center;
+            width: 100%;
+
+            .input-block {
+                grid-column-end: span 2;
+                width: 100%;
+    
+                input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    border: 1px solid #ccc;
+                    outline: none;
+                    border-radius: 0.3rem;
+
+                    &:focus {
+                        border: 2px solid chocolate;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;            
+
+            button {
+                width: 100%;
+                padding: 1rem;
+                border: none;
+                letter-spacing: 0.1rem;
+                outline: none;
+                color: #fff;
+                font-weight: bold;
+                border-radius: 0.3rem;
+                box-shadow: 1px 1px 2px #000;                
+
+                &:hover,
+                &:active {
+                    cursor: pointer;
+                }
+            }
+    
+            .btn-delete {
+                background: red;            
+                
+                &:hover,
+                &:active {
+                    background: #f03939;                    
+                }
+            }
+    
+            .btn-update {
+                background: #2a2af3;    
+                
+                &:hover,
+                &:active {
+                    background: #5252f1;                    
+                }                
+            }
+    
+            .btn-safe {
+                background: #27ac27;
+
+                &:hover,
+                &:active {
+                    background: #42d442;                    
+                }
+            }
+        } 
+    }
+}
+
+@media (min-width: 40rem) {
+    .profile-photo {
+        width: 7rem !important;
+        height: 7rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .modal-header {
+        display: grid !important;
+        grid-template-columns: auto auto auto !important;
+        gap: 1rem !important;
+    }
+
+    .modal-footer {
+        margin-top: 3rem !important;
+        flex-direction: row !important;
+    }
+}
