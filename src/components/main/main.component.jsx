@@ -8,9 +8,9 @@ import { searchAnimal } from '../../redux/animals/animals.actions';
 
 import './main.styles.scss';
 
-const Main = ({animals, filterAnimals, searchField}) => {  
-    const result = getFilteredAnimals(animals, searchField);
-
+const Main = ({animals, filterAnimals, searchField}) => {      
+    const result = getFilteredAnimals(animals, searchField);    
+    
     return (
         <div className='main-container'>            
             <div className='search-container'>
@@ -21,9 +21,9 @@ const Main = ({animals, filterAnimals, searchField}) => {
             </div>
             <div className='animal-container'>                    
             {                                                
-                result.map(({id, ...animals}) => {
+                result.map(({id, ...animalProperties}) => {
                     return (
-                        <Animals key={id} {...animals} id={id} />
+                        <Animals key={id} {...animalProperties} id={id} />
                     )
                 })
             }
