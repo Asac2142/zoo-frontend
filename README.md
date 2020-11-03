@@ -1,4 +1,4 @@
-# ![alt text](https://image.flaticon.com/icons/png/512/427/427401.png) Zoo Ecuador
+# ![alt text](https://image.flaticon.com/icons/png/512/427/427401.png =20x20) Zoo Ecuador
 
 Zoo Ecuador es una aplicacion full responsive que permite administrar animales dentro de un zoologico.
 
