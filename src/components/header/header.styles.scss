@@ -40,12 +40,16 @@
         }
     }
 
-    .nav-container {        
-        display: flex;
-        display: none;
+    .nav-container {
+        position: absolute;
+        z-index: 9;
+        top: 6%;
+        left: 0;        
+        display: flex;          
         flex-direction: column;
         width: 100%;
-        text-align: center;        
+        text-align: center;
+        background: chocolate;        
 
         .option {
             letter-spacing: 0.1rem;
@@ -92,8 +96,10 @@
             margin-bottom: 0;
         }
 
-        .nav-container {
-            display: flex;
+        .nav-container { 
+            visibility: visible !important;           
+            position: static;
+            display: flex !important;
             flex-direction: row !important;
             justify-content: space-between;
             align-items: center;
