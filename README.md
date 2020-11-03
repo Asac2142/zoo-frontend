@@ -1,4 +1,5 @@
-# ![alt text](https://image.flaticon.com/icons/png/512/427/427401.png =20x20) Zoo Ecuador
+# ![alt text](https://yo-toronto.com/wp-content/uploads/2016/05/YoToronto_LandmarkIcon_TOZoo-map.png) 
+# Zoo Ecuador
 
 Zoo Ecuador es una aplicacion full responsive que permite administrar animales dentro de un zoologico.
 
