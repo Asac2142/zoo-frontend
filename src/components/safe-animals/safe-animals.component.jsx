@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import Animals from '../animals/animals.component';
+import Animal from '../animals/animals.component';
 import { selectAllHealthyAnimals } from '../../redux/animals/animals.selectors';
 
 import './safe-animals.styles.scss';
@@ -18,7 +18,7 @@ const Safe = ({ healthyAnimals }) => {
                         {
                             healthyAnimals.map(({id, ...animals}) => {
                             return (
-                                <Animals key={id} {...animals} id={id} />
+                                <Animal key={id} {...animals} id={id} />
                             )
                         })
                         }

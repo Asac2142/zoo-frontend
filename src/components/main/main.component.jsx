@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import Animals from '../animals/animals.component';
+import Animal from '../animals/animals.component';
 import { selectAllInjuredAnimals, selectSearchField } from '../../redux/animals/animals.selectors';
 import { searchAnimal } from '../../redux/animals/animals.actions';
 
@@ -23,7 +23,7 @@ const Main = ({animals, filterAnimals, searchField}) => {
             {                                                
                 result.map(({id, ...animalProperties}) => {
                     return (
-                        <Animals key={id} {...animalProperties} id={id} />
+                        <Animal key={id} {...animalProperties} id={id} />
                     )
                 })
             }

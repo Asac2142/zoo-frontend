@@ -4,7 +4,7 @@ import AnimalModal from '../modal-animal/modal-animal.component';
 
 import './animals.styles.scss';
 
-class Animals extends React.Component {
+class Animal extends React.Component {
     constructor(props) {        
         super(props);        
         this.state = {
@@ -52,4 +52,4 @@ class Animals extends React.Component {
     }    
 };
 
-export default Animals;
+export default Animal;
