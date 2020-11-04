@@ -17,7 +17,14 @@ class AnimalModal extends React.Component {
 
     handleChange = (event) => {                
         const { name, value } = event.target;
-        const animal = {...this.state.animal, [name]: value};
+        let animal = null;
+
+        if (name === 'age') {
+            animal = {...this.state.animal, [name]: parseInt(value)};
+        } else {
+            animal = {...this.state.animal, [name]: value};
+        }
+        
         this.setState({animal});
     }
 
@@ -41,13 +48,13 @@ class AnimalModal extends React.Component {
                 <div className='modal'>
                     <div 
                         className='profile-photo' 
-                        style={{backgroundImage: `url(${this.state.animal.imageUrl})`}}/>
+                        style={{backgroundImage: `url(${this.props.animal.imageUrl})`}}/>
                     <p>{name.toUpperCase()}</p>
                     <div className='close-icon' onClick={() => this.setState({ show: !this.state.show })}/>
                     <form className='modal-header'>
                         <label>Family</label>
                         <div className='input-block'>
-                            <input type='text' name='family' value={family} onChange={this.handleChange.bind(this)} required/>
+                            <input type='text' name='family' value={family} onChange={this.handleChange} required/>
                         </div>
     
                         <label>Specie</label>
@@ -76,7 +83,7 @@ class AnimalModal extends React.Component {
                         <button 
                             className='btn-safe' 
                             onClick={() => {
-                                    this.props.setHealthy(this.state.id)
+                                    this.props.setHealthy(this.props.id)
                                     this.setState({ show: !this.state.show })
                                 }}>
                                 Report healthy
