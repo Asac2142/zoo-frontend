@@ -21,7 +21,7 @@ class Animal extends React.Component {
     }
 
     render() {
-        const { name, imageUrl, specie } = this.props; //this.state.animal; 
+        const { name, imageUrl, specie } = this.props;
         return ( 
             <div>
                 <div 
@@ -45,7 +45,7 @@ class Animal extends React.Component {
                     }
                 </div>
                 {
-                    this.state.show ? <AnimalModal animal={this.state.animal} id={this.state.id}/> : null
+                    this.state.show ? <AnimalModal animal={this.props} id={this.state.id}/> : null
                 }
             </div>
         );
