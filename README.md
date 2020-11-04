@@ -5,7 +5,9 @@ Zoo Ecuador is a full responsive web application allowing to manage all the anim
 
 ## Requeriments
 
-Make sure to have install [NodeJS](https://nodejs.org/en/) on your computer.
+- Make sure to have install [NodeJS](https://nodejs.org/en/) on your computer.
+
+- Have this REST service up [Zoo Ecuador backend](https://github.com/Asac2142/zoo-backend)
 
 ## Installation
 
