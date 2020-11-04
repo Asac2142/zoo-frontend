@@ -21,11 +21,12 @@ const Main = ({animals, filterAnimals, searchField}) => {
             </div>
             <div className='animal-container'>                    
             {                                                
+                result.length > 0 ?
                 result.map(({id, ...animalProperties}) => {
                     return (
                         <Animal key={id} {...animalProperties} id={id} />
                     )
-                })
+                }) : <h2 className='no-animals'>There are no animals who need medical assistance. Whoaa!</h2>                
             }
             </div>
         </div>
