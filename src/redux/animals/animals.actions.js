@@ -1,5 +1,12 @@
 import { animalsActionTypes } from './animals.types';
 
+export const addAnimalData = (animalsArray) => {
+    return {
+        type: animalsActionTypes.ADD_ANIMALS_DATA,
+        payload: animalsArray
+    };
+};
+
 export const searchAnimal = (name) => {
     return {
         type: animalsActionTypes.SEARCH_ANIMAL,
