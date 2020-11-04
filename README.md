@@ -1,21 +1,21 @@
 # ![alt text](https://yo-toronto.com/wp-content/uploads/2016/05/YoToronto_LandmarkIcon_TOZoo-map.png) 
 # Zoo Ecuador
 
-Zoo Ecuador es una aplicacion full responsive que permite administrar animales dentro de un zoologico.
+Zoo Ecuador is a full responsive web application allowing to manage all the animals living in a Zoo.
 
-## Requisitos
+## Requeriments
 
-Asegurate de tener instalado en tu computador [NodeJS](https://nodejs.org/en/)
+Make sure to have install [NodeJS](https://nodejs.org/en/) on your computer.
 
-## Instalacion
+## Installation
 
 ```javascript
 npm install
 ```
 
-## Descripcion
+## Description
 
-- Front end app realizada con las siguientes herramientas:
+- Front end app made with the following tools:
   - ReactJS
   - Redux
   - Reselect
@@ -23,9 +23,9 @@ npm install
   - React-images-upload
   - Node-Sass
 
-- Con esta aplicacion, se puede realizar las siguientes funcionalidades
-  - Registrar nuevos animales que necesiten atencion medica
-  - Dar de alta a un animal
-  - Actualizar los datos de un animal
-  - Eliminarlo
+- With this application, you can use these functionalities
+  - Register new animals who needs medical attention.
+  - Set an animal to be healthy (OK)
+  - Update animal info.
+  - Delete animal.
 
