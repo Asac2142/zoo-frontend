@@ -1,4 +1,4 @@
-export const setHealthyAnimal = (animals, id) => {    
+export const setHealthyAnimal = (animals, id) => {
     let pos = animals.findIndex(animl => animl.id === id);
     if (pos >= 0) {
         animals[pos] = {...animals[pos], active: true};
@@ -16,6 +16,8 @@ export const updateAnimal = (animals, animalToBeUpdated) => {
 
 export const deleteAnimal = (animals, animalToBeDeleted) => {
     const pos = animals.findIndex(animal => animal.id === animalToBeDeleted.id);
-    animals.splice(pos, 1);
+    if (pos >= 0) {
+        animals.splice(pos, 1);
+    }
     return [...animals];
 };
