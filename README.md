@@ -31,3 +31,7 @@ npm install
   - Update animal info.
   - Delete animal.
 
+## Note
+
+- When reporting a new animal, it is recommended to upload a image with size approximately 30 KB (".jpg", ".gif", ".png", ".gif", "jpeg")
+
