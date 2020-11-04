@@ -34,13 +34,17 @@ class AnimalModal extends React.Component {
             axios.put('http://localhost:3142/api/animals', this.state.animal)
                 .then(response => {
                     if (response.status === 200) this.props.updateAnimal(response.data);
-                });            
+                }).catch(error => {
+                    alert(`Error: ${error}`);
+                });
         } 
         
         if (event.target.id === 'btn-delete') {
             axios.delete(`http://localhost:3142/api/animals/delete/${this.state.animal.id}`)
             .then(response => {
                 if (response.status === 200) this.props.deleteAnimal({...response.data.animalDeleted[0]});
+            }).catch(error => {
+                alert(`Error: ${error}`);
             });
         }
 
@@ -48,7 +52,9 @@ class AnimalModal extends React.Component {
             axios.patch(`http://localhost:3142/api/animals/${this.state.animal.id}`)
             .then(response => {
                 if (response.status === 200) this.props.setHealthy(response.data.id);
-            })
+            }).catch(error => {
+                alert(`Error: ${error}`);
+            });
         }
 
         this.setState({ show: !this.state.show });

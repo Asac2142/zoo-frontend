@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageUploader from 'react-images-upload';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { addAnimal } from '../../redux/animals/animals.actions';
 
@@ -10,8 +11,8 @@ class ReportNewAnimal extends React.Component {
     constructor() {
         super();
         this.state = {            
-            id: 0,            
-            imageUrl: [],
+            id: '0',            
+            imageUrl: '',
             name: '',
             family: '',
             specie: '',
@@ -24,7 +25,7 @@ class ReportNewAnimal extends React.Component {
 
     onDrop(pictureFiles, pictureDataURLs) {        
         this.setState({            
-            imageUrl: this.state.imageUrl.concat(pictureFiles)
+            imageUrl: this.state.imageUrl.concat(pictureDataURLs)
         });
     };
 
@@ -34,15 +35,17 @@ class ReportNewAnimal extends React.Component {
     };
 
     handleSubmit = (event) => {
-        event.preventDefault();        
-        this.setState(
-            { id: `${Math.floor(Math.random(100) * 100) + 1}${new Date().getMilliseconds()}` },
-            () => {
-                this.props.addNewAnimal(this.state);
+        event.preventDefault();         
+        axios.post('http://localhost:3142/api/animals', this.state)
+        .then(res => {
+            if (res.status === 200) {
+                this.props.addNewAnimal(res.data);
                 this.clearState();
                 this.props.history.push('/');
             }
-        );        
+        }).catch(error => {
+            alert(`Error: ${error}`);
+        });
     };
 
     clearState = () => {
@@ -102,6 +105,8 @@ class ReportNewAnimal extends React.Component {
                             withIcon={true}
                             onChange={this.onDrop}
                             imgExtension={[".jpg", ".gif", ".png", ".gif", "jpeg"]}
+                            maxFileSize={5242880}
+                            singleImage={true}
                         />
                     </div>
     
