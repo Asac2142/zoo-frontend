@@ -42,7 +42,7 @@ class AnimalModal extends React.Component {
         if (event.target.id === 'btn-delete') {
             axios.delete(`http://localhost:3142/api/animals/delete/${this.state.animal.id}`)
             .then(response => {
-                if (response.status === 200) this.props.deleteAnimal({...response.data.animalDeleted[0]});
+                if (response.status === 200) this.props.deleteAnimal({...response.data});
             }).catch(error => {
                 alert(`Error: ${error}`);
             });
