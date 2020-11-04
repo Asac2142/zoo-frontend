@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { setHealthyAnimal, updateAnimal, deleteAnimal } from '../../redux/animals/animals.actions';
 
@@ -29,13 +30,28 @@ class AnimalModal extends React.Component {
     }
 
     handleSubmit = (event) => {        
-        if (event.target.id === 'btn-update') {            
-            this.props.updateAnimal(this.state.animal);
-        } else {
-            this.props.deleteAnimal(this.state.animal);
+        if (event.target.id === 'btn-update') {
+            axios.put('http://localhost:3142/api/animals', this.state.animal)
+                .then(response => {
+                    if (response.status === 200) this.props.updateAnimal(response.data);
+                });            
+        } 
+        
+        if (event.target.id === 'btn-delete') {
+            axios.delete(`http://localhost:3142/api/animals/delete/${this.state.animal.id}`)
+            .then(response => {
+                if (response.status === 200) this.props.deleteAnimal({...response.data.animalDeleted[0]});
+            });
         }
 
-        this.setState({ show: !this.state.show });        
+        if (event.target.id === 'btn-safe') {
+            axios.patch(`http://localhost:3142/api/animals/${this.state.animal.id}`)
+            .then(response => {
+                if (response.status === 200) this.props.setHealthy(response.data.id);
+            })
+        }
+
+        this.setState({ show: !this.state.show });
     }
 
     render() {
@@ -80,14 +96,7 @@ class AnimalModal extends React.Component {
                     <div className='modal-footer'>
                         <button id='btn-delete' className='btn-delete' onClick={this.handleSubmit}>Delete</button>
                         <button id='btn-update' className='btn-update' onClick={this.handleSubmit}>Update</button>
-                        <button 
-                            className='btn-safe' 
-                            onClick={() => {
-                                    this.props.setHealthy(this.props.id)
-                                    this.setState({ show: !this.state.show })
-                                }}>
-                                Report healthy
-                        </button>
+                        <button id='btn-safe' className='btn-safe' onClick={this.handleSubmit}>Report healthy</button>
                     </div>
                 </div>
             </div> :
