@@ -1,4 +1,4 @@
-# ![alt text](https://yo-toronto.com/wp-content/uploads/2016/05/YoToronto_LandmarkIcon_TOZoo-map.png) 
+# ![Logo](https://yo-toronto.com/wp-content/uploads/2016/05/YoToronto_LandmarkIcon_TOZoo-map.png) 
 # Zoo Ecuador
 
 Zoo Ecuador is a full responsive web application allowing to manage all the animals living in a Zoo.
